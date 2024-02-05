@@ -34,7 +34,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Login</string>
        </property>
       </widget>
      </item>
@@ -42,6 +42,9 @@
       <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string>PushButton</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -60,7 +63,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>
