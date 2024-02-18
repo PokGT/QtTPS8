@@ -36,7 +36,7 @@ vector<CUser> CUser::get_list_user(QString JsonFilePath)
 {
     vector<CUser> Listuser;
 
-    QJsonDocument Doc = CJesonRead::getData("user.json");
+    QJsonDocument Doc = CJesonTool::getData(JsonFilePath);
 
     if(Doc.isObject()){
         QJsonObject Obj = Doc.object();
@@ -47,6 +47,22 @@ vector<CUser> CUser::get_list_user(QString JsonFilePath)
             Listuser.push_back(CUser(objectpoint.value("username").toString(),objectpoint.value("password").toString(),objectpoint.value("role").toString()));
         }
     }
-
+   //    CJesonTool::setData(Doc,"test.json");
     return Listuser;
+}
+void CUser::save_list_user(vector<CUser> users, QString path)
+{
+    QJsonArray array;
+    for (auto it = users.begin(); it != users.end(); it++) {
+        QJsonObject Temp;
+        Temp.insert("username",it->get_s_username());
+        Temp.insert("password",it->get_s_password());
+        Temp.insert("role",it->get_s_role());
+        array.append(Temp);
+    }
+    QJsonObject object;
+    object.insert("user", array);
+    QJsonDocument document;
+    document.setObject(object);
+    CJesonTool::setData(document,path);
 }

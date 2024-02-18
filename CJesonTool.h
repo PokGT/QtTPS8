@@ -1,5 +1,5 @@
-#ifndef CJESONTOOL _H
-#define CJESONTOOL _H
+#ifndef CJESONTOOL_H
+#define CJESONTOOL_H
 #include <QtCore>
 #include <string>
 #include <iostream>
@@ -16,6 +16,6 @@ public:
     ~CJesonTool();
 
     static QJsonDocument getData(QString JsonFilePath);
-    static  setData(QJsonDocument Document);
+    static  setData(QJsonDocument document, QString JsonFilePath);
 };
-#endif // CJESONTOOL _H
+#endif // CJESONTOOL_H

@@ -1,6 +1,6 @@
 #ifndef CUSER_H
 #define CUSER_H
-#include "CJesonTool .h"
+#include "CJesonTool.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -23,6 +23,6 @@ public:
     QString get_s_role() const;
 
     static vector<CUser> get_list_user(QString JsonFilePath);
-    static save_list_user(QString path, vector<CUser> users);
+    static void save_list_user(vector<CUser> users, QString path);
 };
 #endif // CUSER_H

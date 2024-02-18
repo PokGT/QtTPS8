@@ -25,20 +25,18 @@ QJsonDocument CJesonTool::getData(QString JsonFilePath)
     return Document;
 }
 
-CJesonTool::setData(QJsonDocument Document)
+CJesonTool::setData(QJsonDocument document, QString JsonFilePath)
 {
-    document.setObject( content );
     QByteArray bytes = document.toJson( QJsonDocument::Indented );
-    QFile file( path );
+    QFile file(JsonFilePath);
     if( file.open( QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate ) )
     {
-        QTextStream iStream( &file );
-        iStream.setCodec( "utf-8" );
+        QTextStream iStream(&file);
         iStream << bytes;
         file.close();
     }
     else
     {
-        cout << "file open failed: " << path.toStdString() << endl;
+        cout << "file open failed: " << JsonFilePath.toStdString() << endl;
     }
 }
