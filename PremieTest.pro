@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     CJesonTool.cpp \
     CUser.cpp \
+    CUserController.cpp \
     createuser.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     CJesonTool.h \
     CUser.h \
+    CUserController.h \
     createuser.h \
     mainwindow.h \
     userpage.h

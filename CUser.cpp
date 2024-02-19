@@ -32,37 +32,14 @@ QString CUser::get_s_role() const
     return s_role;
 }
 
-vector<CUser> CUser::get_list_user(QString JsonFilePath)
+bool CUser::operator==(CUser& usercomp)
 {
-    vector<CUser> Listuser;
-
-    QJsonDocument Doc = CJesonTool::getData(JsonFilePath);
-
-    if(Doc.isObject()){
-        QJsonObject Obj = Doc.object();
-        QJsonArray JArray = Obj.value("user").toArray();
-        for(auto points : JArray)
-        {
-            QJsonObject objectpoint = points.toObject();
-            Listuser.push_back(CUser(objectpoint.value("username").toString(),objectpoint.value("password").toString(),objectpoint.value("role").toString()));
-        }
+    if (this->get_s_username() == usercomp.get_s_username())
+    {
+        return true;
     }
-   //    CJesonTool::setData(Doc,"test.json");
-    return Listuser;
-}
-void CUser::save_list_user(vector<CUser> users, QString path)
-{
-    QJsonArray array;
-    for (auto it = users.begin(); it != users.end(); it++) {
-        QJsonObject Temp;
-        Temp.insert("username",it->get_s_username());
-        Temp.insert("password",it->get_s_password());
-        Temp.insert("role",it->get_s_role());
-        array.append(Temp);
+    else
+    {
+        return false;
     }
-    QJsonObject object;
-    object.insert("user", array);
-    QJsonDocument document;
-    document.setObject(object);
-    CJesonTool::setData(document,path);
 }

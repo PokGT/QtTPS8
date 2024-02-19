@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <vector>
+#include "CUserController.h"
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +18,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 private slots :
-    //void on_pushbutton_clicked();
+
+    void on_PB_deconexion_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_PB_cree_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,10 +1,6 @@
 #ifndef CUSER_H
 #define CUSER_H
-#include "CJesonTool.h"
-#include <string>
-#include <vector>
-#include <iostream>
-using namespace std;
+#include <QString>
 class CUser {
 private:
 
@@ -22,7 +18,7 @@ public:
     QString get_s_password() const;
     QString get_s_role() const;
 
-    static vector<CUser> get_list_user(QString JsonFilePath);
-    static void save_list_user(vector<CUser> users, QString path);
+    bool operator==(CUser& usercomp);
+
 };
 #endif // CUSER_H
