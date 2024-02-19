@@ -9,26 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CJesonTool.cpp \
+    CJsonTool.cpp \
     CUser.cpp \
     CUserController.cpp \
-    createuser.cpp \
     main.cpp \
-    mainwindow.cpp \
-    userpage.cpp
+    mainwindow.cpp
 
 HEADERS += \
-    CJesonTool.h \
+    CJsonTool.h \
     CUser.h \
     CUserController.h \
-    createuser.h \
-    mainwindow.h \
-    userpage.h
+    mainwindow.h
 
 FORMS += \
-    createuser.ui \
-    mainwindow.ui \
-    userpage.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -48,7 +48,7 @@ vector<CUser> CUserController::get_list_user(QString JsonFilePath)
 {
     vector<CUser> Listuser;
 
-    QJsonDocument Doc = CJesonTool::getData(JsonFilePath);
+    QJsonDocument Doc = CJsonTool::getData(JsonFilePath);
 
     if(Doc.isObject()){
         QJsonObject Obj = Doc.object();
@@ -77,7 +77,7 @@ void CUserController::save_list_user(vector<CUser> users, QString path)
     object.insert("user", array);
     QJsonDocument document;
     document.setObject(object);
-    CJesonTool::setData(document,path);
+    CJsonTool::setData(document,path);
 }
 
 bool CUserController::chek_if_exist(CUser& user)

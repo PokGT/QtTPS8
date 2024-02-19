@@ -1,6 +1,6 @@
-#include "CJesonTool.h"
+#include "CJsonTool.h"
 
-QJsonDocument CJesonTool::getData(QString JsonFilePath)
+QJsonDocument CJsonTool::getData(QString JsonFilePath)
 {
     QJsonDocument Document;
 
@@ -25,7 +25,7 @@ QJsonDocument CJesonTool::getData(QString JsonFilePath)
     return Document;
 }
 
-CJesonTool::setData(QJsonDocument document, QString JsonFilePath)
+void CJsonTool::setData(QJsonDocument document, QString JsonFilePath)
 {
     QByteArray bytes = document.toJson( QJsonDocument::Indented );
     QFile file(JsonFilePath);
