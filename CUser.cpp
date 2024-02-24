@@ -32,6 +32,17 @@ QString CUser::get_s_role() const
     return s_role;
 }
 
+bool CUser::isAdministrator()
+{
+    if(this->get_s_role() == "administrator")
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 bool CUser::operator==(CUser& usercomp)
 {
     if (this->get_s_username() == usercomp.get_s_username())

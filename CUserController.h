@@ -31,6 +31,8 @@ public:
      */
     void deconnection();
 
+    CUser getUserUserConnecter();
+
     /**
      * @brief get_list_user : returns a vector of users form the saves file
      * @param JsonFilePath
@@ -58,6 +60,7 @@ public:
      * @return
      */
     static bool addUser(CUser user);
+
 
 };
 #endif // CUSERCONTROLLER_H

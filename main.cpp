@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "createuser.h"
 #include "CUser.h"
 #include "CUserController.h"
 #include <QApplication>

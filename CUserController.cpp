@@ -44,6 +44,11 @@ void CUserController::deconnection()
     UserConnecter = nullptr;
 }
 
+CUser CUserController::getUserUserConnecter()
+{
+    return CUser(*UserConnecter);
+}
+
 vector<CUser> CUserController::get_list_user(QString JsonFilePath)
 {
     vector<CUser> Listuser;

@@ -27,6 +27,9 @@ public:
     QString get_s_password() const;
     QString get_s_role() const;
 
+    bool isAdministrator();
+
+
     /**
      * @brief operator == overloaded to compare CUser objects
      * @param usercomp

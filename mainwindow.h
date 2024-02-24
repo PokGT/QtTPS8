@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <CUserController.h>
+#include <CUser.h>
 #include <QMainWindow>
 #include <vector>
 #include "CUserController.h"
@@ -16,19 +17,19 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     CUserController UserControlleur;
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void deconexion(void);
+
 private slots :
-    /**
-     * @brief on_PB_deconexion_clicked : action performed by the deconnexion button
-     */
-    void on_PB_deconexion_clicked();
 
     /**
-     * @brief on_pushButton_clicked : action performed by the connection button
+     * @brief on_PB_conexion_clicked : action performed by the connection button
      */
-    void on_pushButton_clicked();
+    void on_PB_conexion_clicked();
 
     /**
      * @brief on_PB_cree_clicked : action performed by the button "create"
