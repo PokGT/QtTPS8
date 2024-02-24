@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <CUserController.h>
 #include <QMainWindow>
 #include <vector>
 #include "CUserController.h"
@@ -13,7 +13,7 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    CUserController UserControlleur;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
