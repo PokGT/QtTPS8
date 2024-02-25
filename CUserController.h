@@ -2,6 +2,7 @@
 #define CUSERCONTROLLER_H
 #include "CJsonTool.h"
 #include "CUser.h"
+#include "CProfil.h"
 #include <vector>
 #include <iostream>
 using namespace std;

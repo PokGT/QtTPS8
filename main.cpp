@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "CUser.h"
+#include "CProfil.h"
 #include "CUserController.h"
 #include <QApplication>
 #include <string>
@@ -8,16 +9,24 @@ using namespace std;
 
 void testJSON()
 {
+    QVector<CProfil> Profil;
+    Profil.push_back(CProfil("Profe"));
+
+    //vector<CUser> Listuser;
     vector<CUser> Listuser = CUserController::get_list_user("user.json");
-    CUser nouvUser = CUser("jojo","12356","user");
+
+
+    CUser nouvUser = CUser("titi","12345","user",Profil);
     Listuser.push_back(nouvUser);
+
     CUserController::save_list_user(Listuser,"user.json");
 }
 
 void testCUserController()
 {
-    CUser User1 = CUser("John","12356","user");
-    CUser User2 = CUser("loulou","12356","user");
+    QVector<CProfil> Profil;
+    CUser User1 = CUser("John","12356","user",Profil);
+    CUser User2 = CUser("loulou","12356","user",Profil);
 
     bool r1 = CUserController::chek_if_exist(User1);
     bool r2 = CUserController::chek_if_exist(User2);
@@ -40,7 +49,7 @@ int main(int argc, char *argv[])
     w.show();
 
 
-    //tetJSON();
+    //testJSON();
     //testCUserController();
     return a.exec();
 }

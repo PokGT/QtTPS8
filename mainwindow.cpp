@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser)
 {   
     ui->setupUi(this);
     vector<CUser> Listuser = CUserController::get_list_user("user.json");
@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->menubar->setVisible(0);
 
     connect(ui->actionQuit,&QAction::triggered,this,&MainWindow::deconexion);
+    connect(ui->actionCreate_User,&QAction::triggered,this,&MainWindow::openDialogCreatUser);
 }
 
 MainWindow::~MainWindow()
@@ -26,6 +27,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::openDialogCreatUser(void)
+{
+    dialogCreatUser->exec();
+}
 
 void MainWindow::deconexion(void)
 {
@@ -47,6 +52,8 @@ void MainWindow::on_PB_conexion_clicked()
         CUser user = UserControlleur.getUserUserConnecter();
 
         ui->TL_errorLogin->setVisible(0);
+
+        //Menu bar display management
         ui->menubar->setVisible(1);
         if(user.isAdministrator()){
             ui->menuEditUser->setEnabled(1);
@@ -56,9 +63,18 @@ void MainWindow::on_PB_conexion_clicked()
             ui->menuEditUser->setEnabled(0);
         }
 
+        //user information display management
         ui->TL_userNameAcceuil->setText(user.get_s_username());
         ui->TL_roleAcceuil->setText(user.get_s_role());
 
+        ui->CB_profile->clear();
+        QVector<CProfil> ListProfil = user.get_v_PRF_Profil();
+        for (auto it = ListProfil.begin(); it != ListProfil.end(); it++)
+        {
+            ui->CB_profile->addItem(it->get_s_prfName());
+        }
+
+        //home page display
         ui->stackedWidget->setCurrentWidget(ui->pageAcceuil);
     }
     else {
@@ -71,7 +87,8 @@ void MainWindow::on_PB_conexion_clicked()
 
 void MainWindow::on_PB_cree_clicked()
 {
-    CUser nouvUser = CUser(ui->LE_userNameCree->text(),ui->LE_passwordCree->text(),"administrator");
+    QVector<CProfil> Profil;
+    CUser nouvUser = CUser(ui->LE_userNameCree->text(),ui->LE_passwordCree->text(),"administrator",Profil);
     if(!this->UserControlleur.chek_if_exist(nouvUser) && ui->LE_userNameCree->text() != "" && ui->LE_passwordCree->text() != "")
     {
         CUserController::addUser(nouvUser);

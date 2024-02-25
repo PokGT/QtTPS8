@@ -10,18 +10,23 @@ CONFIG += c++11
 
 SOURCES += \
     CJsonTool.cpp \
+    CProfil.cpp \
     CUser.cpp \
     CUserController.cpp \
+    dialogcreatuser.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     CJsonTool.h \
+    CProfil.h \
     CUser.h \
     CUserController.h \
+    dialogcreatuser.h \
     mainwindow.h
 
 FORMS += \
+    dialogcreatuser.ui \
     mainwindow.ui
 
 # Default rules for deployment.

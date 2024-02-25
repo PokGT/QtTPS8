@@ -4,7 +4,9 @@
 #include <CUser.h>
 #include <QMainWindow>
 #include <vector>
+#include "dialogcreatuser.h"
 #include "CUserController.h"
+
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -16,13 +18,13 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    CUserController UserControlleur;
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     void deconexion(void);
+    void openDialogCreatUser(void);
 
 private slots :
 
@@ -38,5 +40,7 @@ private slots :
 
 private:
     Ui::MainWindow *ui;
+    CUserController UserControlleur;
+    DialogCreatUser *dialogCreatUser;
 };
 #endif // MAINWINDOW_H

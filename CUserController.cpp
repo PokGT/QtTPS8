@@ -49,6 +49,8 @@ CUser CUserController::getUserUserConnecter()
     return CUser(*UserConnecter);
 }
 
+
+
 vector<CUser> CUserController::get_list_user(QString JsonFilePath)
 {
     vector<CUser> Listuser;
@@ -57,11 +59,22 @@ vector<CUser> CUserController::get_list_user(QString JsonFilePath)
 
     if(Doc.isObject()){
         QJsonObject Obj = Doc.object();
-        QJsonArray JArray = Obj.value("user").toArray();
-        for(auto points : JArray)
+
+        QJsonArray JArrayUser = Obj.value("user").toArray();
+        for(auto user : JArrayUser)
         {
-            QJsonObject objectpoint = points.toObject();
-            Listuser.push_back(CUser(objectpoint.value("username").toString(),objectpoint.value("password").toString(),objectpoint.value("role").toString()));
+            QJsonObject objectpointUser = user.toObject();
+
+            QVector<CProfil> Profil;
+            QJsonArray JArrayProfil = objectpointUser.value("profil").toArray();
+            for(auto profil : JArrayProfil)
+            {
+                QJsonObject objectpointProfil = profil.toObject();
+                Profil.push_back(CProfil(objectpointProfil.value("prfName").toString()));
+            }
+
+            Listuser.push_back(CUser(objectpointUser.value("username").toString(),objectpointUser.value("password").toString(),objectpointUser.value("role").toString(),Profil));
+            Profil.clear();
         }
     }
 
@@ -76,6 +89,17 @@ void CUserController::save_list_user(vector<CUser> users, QString path)
         Temp.insert("username",it->get_s_username());
         Temp.insert("password",it->get_s_password());
         Temp.insert("role",it->get_s_role());
+
+        QVector<CProfil> Profil = it->get_v_PRF_Profil();
+        QJsonArray arrayProfil;
+        for (auto itProfil = Profil.begin(); itProfil != Profil.end(); itProfil++){
+            QJsonObject Jprofil;
+            Jprofil.insert("prfName",itProfil->get_s_prfName());
+            arrayProfil.append(Jprofil);
+        }
+
+        Temp.insert("profil",arrayProfil);
+
         array.append(Temp);
     }
     QJsonObject object;
