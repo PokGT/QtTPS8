@@ -6,7 +6,8 @@
 #include <vector>
 #include "dialogcreatuser.h"
 #include "CUserController.h"
-
+#include "dialogremoveuser.h"
+#include "dialogaddprofil.h"
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +26,8 @@ public:
 
     void deconexion(void);
     void openDialogCreatUser(void);
+    void openDialogRemoveUser(void);
+    void openDialogAddProfil(void);
 
 private slots :
 
@@ -42,5 +45,7 @@ private:
     Ui::MainWindow *ui;
     CUserController UserControlleur;
     DialogCreatUser *dialogCreatUser;
+    DialogRemoveUser *dialogRemoveUser;
+    DialogAddProfil *dialogAddProfil;
 };
 #endif // MAINWINDOW_H

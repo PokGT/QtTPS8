@@ -13,7 +13,9 @@ SOURCES += \
     CProfil.cpp \
     CUser.cpp \
     CUserController.cpp \
+    dialogaddprofil.cpp \
     dialogcreatuser.cpp \
+    dialogremoveuser.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -22,11 +24,15 @@ HEADERS += \
     CProfil.h \
     CUser.h \
     CUserController.h \
+    dialogaddprofil.h \
     dialogcreatuser.h \
+    dialogremoveuser.h \
     mainwindow.h
 
 FORMS += \
+    dialogaddprofil.ui \
     dialogcreatuser.ui \
+    dialogremoveuser.ui \
     mainwindow.ui
 
 # Default rules for deployment.

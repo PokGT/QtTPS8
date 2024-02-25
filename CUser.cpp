@@ -39,10 +39,62 @@ QString CUser::get_s_role() const
 {
     return s_role;
 }
+QString CUser::get_listProfil() const
+{
+    QString profils="";
+    for (auto it = v_PRF_Profil.begin(); it != v_PRF_Profil.end(); it++)
+    {
+        profils.append(it->get_s_prfName()+", ");
+    }
+    return profils;
+
+}
 
 QVector<CProfil> CUser::get_v_PRF_Profil() const
 {
     return v_PRF_Profil;
+}
+
+int CUser::add_Profil(CProfil profil)
+{
+    if(!have_profil(profil)){
+        v_PRF_Profil.push_back(profil);
+    }
+    else
+    {
+        return false;
+    }
+}
+int CUser::supr_profil(CProfil profil)
+{
+    if(have_profil(profil)){
+        int inexSupr=-1;
+        for (int i = 0; i < v_PRF_Profil.size(); i++) {
+            if( v_PRF_Profil[i] == profil){
+                inexSupr =i;
+            }
+        }
+        if(inexSupr!=-1)
+        {
+           v_PRF_Profil.erase(v_PRF_Profil.begin() + inexSupr);
+           return true;
+        }
+        return false;
+    }
+    else
+    {
+       return false;
+    }
+}
+
+bool CUser::have_profil(CProfil profil)
+{
+    for (auto it = v_PRF_Profil.begin(); it != v_PRF_Profil.end(); it++) {
+        if( *it == profil){
+            return true;
+        }
+    }
+    return false;
 }
 
 bool CUser::isAdministrator()

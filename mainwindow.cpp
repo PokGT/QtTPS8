@@ -3,10 +3,10 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser)
+    , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser),dialogRemoveUser(new DialogRemoveUser),dialogAddProfil(new DialogAddProfil)
 {   
     ui->setupUi(this);
-    vector<CUser> Listuser = CUserController::get_list_user("user.json");
+    vector<CUser> Listuser = CUserController::get_list_user();
     if(Listuser.size()<=0){
         ui->stackedWidget->setCurrentWidget(ui->pageCreeUser);
     }
@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actionQuit,&QAction::triggered,this,&MainWindow::deconexion);
     connect(ui->actionCreate_User,&QAction::triggered,this,&MainWindow::openDialogCreatUser);
+    connect(ui->actionRemove_User,&QAction::triggered,this,&MainWindow::openDialogRemoveUser);
+    connect(ui->actionAdd_profile,&QAction::triggered,this,&MainWindow::openDialogAddProfil);
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +32,18 @@ MainWindow::~MainWindow()
 void MainWindow::openDialogCreatUser(void)
 {
     dialogCreatUser->exec();
+}
+
+void MainWindow::openDialogRemoveUser(void)
+{
+    dialogRemoveUser->refreshWindow();
+    dialogRemoveUser->exec();
+}
+
+void MainWindow::openDialogAddProfil(void)
+{
+    dialogAddProfil->refreshWindow();
+    dialogAddProfil->exec();
 }
 
 void MainWindow::deconexion(void)

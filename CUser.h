@@ -30,9 +30,13 @@ public:
     QString get_s_username() const;
     QString get_s_password() const;
     QString get_s_role() const;
+    QString get_listProfil() const;
 
     QVector<CProfil> get_v_PRF_Profil() const;
+    int add_Profil(CProfil profil);
+    int supr_profil(CProfil prfName);
 
+    bool have_profil(CProfil prfName);
     bool isAdministrator();
 
 
