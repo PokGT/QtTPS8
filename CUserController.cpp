@@ -24,7 +24,7 @@ bool CUserController::connection(QString username, QString password)
     {
         delete UserConnecter;
     }
-    vector<CUser> Listuser = CUserController::get_list_user();
+    QVector<CUser> Listuser = CUserController::get_list_user();
     for (auto it = Listuser.begin(); it != Listuser.end(); it++) {
         if(it->get_s_username() == username && it->get_s_password() == password)
         {
@@ -51,9 +51,9 @@ CUser CUserController::getUserUserConnecter()
 
 
 
-vector<CUser> CUserController::get_list_user()
+QVector<CUser> CUserController::get_list_user()
 {
-    vector<CUser> Listuser;
+    QVector<CUser> Listuser;
 
     QJsonDocument Doc = CJsonTool::getData("user.json");
 
@@ -81,7 +81,7 @@ vector<CUser> CUserController::get_list_user()
     return Listuser;
 }
 
-void CUserController::save_list_user(vector<CUser> users)
+void CUserController::save_list_user(QVector<CUser> users)
 {
     QJsonArray array;
     for (auto it = users.begin(); it != users.end(); it++) {
@@ -111,7 +111,7 @@ void CUserController::save_list_user(vector<CUser> users)
 
 bool CUserController::chek_if_exist(CUser& user)
 {
-    vector<CUser> Listuser = CUserController::get_list_user();
+    QVector<CUser> Listuser = CUserController::get_list_user();
     for (auto it = Listuser.begin(); it != Listuser.end(); it++) {
         if(*it == user){
             return true;
@@ -122,7 +122,7 @@ bool CUserController::chek_if_exist(CUser& user)
 
 bool CUserController::addUser(CUser user)
 {
-    vector<CUser> ListUser = CUserController::get_list_user();
+    QVector<CUser> ListUser = CUserController::get_list_user();
     if(!chek_if_exist(user)){
         ListUser.push_back(user);
         save_list_user(ListUser);

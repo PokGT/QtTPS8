@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser),dialogRemoveUser(new DialogRemoveUser),dialogAddProfil(new DialogAddProfil),dialogRemoveProfil(new DialogRemoveProfil)
 {   
     ui->setupUi(this);
-    vector<CUser> Listuser = CUserController::get_list_user();
+    QVector<CUser> Listuser = CUserController::get_list_user();
     if(Listuser.size()<=0){
         ui->stackedWidget->setCurrentWidget(ui->pageCreeUser);
     }

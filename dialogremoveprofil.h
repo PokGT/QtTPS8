@@ -2,7 +2,7 @@
 #define DIALOGREMOVEPROFIL_H
 
 #include <QDialog>
-#include <vector>
+#include <QVector>
 #include "CUser.h"
 #include "CProfil.h"
 #include "CUserController.h"
@@ -30,7 +30,7 @@ private slots:
 
 private:
     Ui::DialogRemoveProfil *ui;
-    vector<CUser> v_USR_ListUsers;
+    QVector<CUser> v_USR_ListUsers;
 };
 
 #endif // DIALOGREMOVEPROFIL_H

@@ -33,6 +33,7 @@ public:
     QString get_listProfil() const;
 
     QVector<CProfil> get_v_PRF_Profil() const;
+
     int add_Profil(CProfil profil);
     int supr_profil(CProfil prfName);
 

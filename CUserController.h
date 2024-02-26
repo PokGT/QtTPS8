@@ -39,14 +39,14 @@ public:
      * @param JsonFilePath
      * @return vector<CUser>
      */
-    static vector<CUser> get_list_user();
+    static QVector<CUser> get_list_user();
 
     /**
      * @brief save_list_user : truncates the file then adds the vector to it
      * @param users
      * @param path
      */
-    static void save_list_user(vector<CUser> users);
+    static void save_list_user(QVector<CUser> users);
 
     /**
      * @brief chek_if_exist : checks if the user already exists

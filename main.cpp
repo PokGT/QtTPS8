@@ -13,7 +13,7 @@ void testJSON()
     Profil.push_back(CProfil("Profe"));
 
     //vector<CUser> Listuser;
-    vector<CUser> Listuser = CUserController::get_list_user();
+    QVector<CUser> Listuser = CUserController::get_list_user();
 
 
     CUser nouvUser = CUser("titi","12345","user",Profil);
