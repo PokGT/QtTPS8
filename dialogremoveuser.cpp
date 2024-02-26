@@ -6,12 +6,6 @@ DialogRemoveUser::DialogRemoveUser(QWidget *parent)
     , ui(new Ui::DialogRemoveUser)
 {
     ui->setupUi(this);
-
-    v_USR_ListUsers = CUserController::get_list_user();
-    acutaliserCB_user();
-    acutaliserInfoUser(ui->CB_user->currentIndex());
-
-
 }
 
 DialogRemoveUser::~DialogRemoveUser()

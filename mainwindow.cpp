@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser),dialogRemoveUser(new DialogRemoveUser),dialogAddProfil(new DialogAddProfil)
+    , ui(new Ui::MainWindow),dialogCreatUser(new DialogCreatUser),dialogRemoveUser(new DialogRemoveUser),dialogAddProfil(new DialogAddProfil),dialogRemoveProfil(new DialogRemoveProfil)
 {   
     ui->setupUi(this);
     vector<CUser> Listuser = CUserController::get_list_user();
@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionCreate_User,&QAction::triggered,this,&MainWindow::openDialogCreatUser);
     connect(ui->actionRemove_User,&QAction::triggered,this,&MainWindow::openDialogRemoveUser);
     connect(ui->actionAdd_profile,&QAction::triggered,this,&MainWindow::openDialogAddProfil);
+    connect(ui->actionRemove_profile,&QAction::triggered,this,&MainWindow::openDialogRemoveProfil);
 }
 
 MainWindow::~MainWindow()
@@ -44,6 +45,12 @@ void MainWindow::openDialogAddProfil(void)
 {
     dialogAddProfil->refreshWindow();
     dialogAddProfil->exec();
+}
+
+void MainWindow::openDialogRemoveProfil(void)
+{
+    dialogRemoveProfil->refreshWindow();
+    dialogRemoveProfil->exec();
 }
 
 void MainWindow::deconexion(void)

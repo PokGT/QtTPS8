@@ -8,6 +8,7 @@
 #include "CUserController.h"
 #include "dialogremoveuser.h"
 #include "dialogaddprofil.h"
+#include "dialogremoveprofil.h"
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -28,6 +29,7 @@ public:
     void openDialogCreatUser(void);
     void openDialogRemoveUser(void);
     void openDialogAddProfil(void);
+    void openDialogRemoveProfil(void);
 
 private slots :
 
@@ -47,5 +49,6 @@ private:
     DialogCreatUser *dialogCreatUser;
     DialogRemoveUser *dialogRemoveUser;
     DialogAddProfil *dialogAddProfil;
+    DialogRemoveProfil *dialogRemoveProfil;
 };
 #endif // MAINWINDOW_H

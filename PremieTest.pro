@@ -15,6 +15,7 @@ SOURCES += \
     CUserController.cpp \
     dialogaddprofil.cpp \
     dialogcreatuser.cpp \
+    dialogremoveprofil.cpp \
     dialogremoveuser.cpp \
     main.cpp \
     mainwindow.cpp
@@ -26,12 +27,14 @@ HEADERS += \
     CUserController.h \
     dialogaddprofil.h \
     dialogcreatuser.h \
+    dialogremoveprofil.h \
     dialogremoveuser.h \
     mainwindow.h
 
 FORMS += \
     dialogaddprofil.ui \
     dialogcreatuser.ui \
+    dialogremoveprofil.ui \
     dialogremoveuser.ui \
     mainwindow.ui
 

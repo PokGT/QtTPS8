@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogAddProfil</class>
- <widget class="QDialog" name="DialogAddProfil">
+ <class>DialogRemoveProfil</class>
+ <widget class="QDialog" name="DialogRemoveProfil">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,11 +13,89 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QPushButton" name="PB_remove">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>150</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TL_error">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>190</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select user :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TL_userName">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>70</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TL_profil">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>110</y>
+     <width>281</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TL_role">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>90</y>
+     <width>211</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>47</x>
-     <y>80</y>
+     <x>57</x>
+     <y>90</y>
      <width>31</width>
      <height>16</height>
     </rect>
@@ -29,24 +107,11 @@
     <string>Role :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="TL_profil">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>100</y>
-     <width>281</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>15</x>
-     <y>60</y>
+     <x>25</x>
+     <y>70</y>
      <width>61</width>
      <height>16</height>
     </rect>
@@ -55,37 +120,11 @@
     <string>User name :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Select user :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="TL_role">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>211</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>35</x>
-     <y>100</y>
+     <x>45</x>
+     <y>110</y>
      <width>41</width>
      <height>16</height>
     </rect>
@@ -94,76 +133,37 @@
     <string>Profile :</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Profil :</string>
+   </property>
+  </widget>
   <widget class="QComboBox" name="CB_user">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>10</y>
+     <x>90</x>
+     <y>20</y>
      <width>151</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="TL_userName">
+  <widget class="QComboBox" name="CB_profil">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>211</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>New profil :</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="PB_add">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>140</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="LE_newProfil">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>140</y>
-     <width>181</width>
+     <x>70</x>
+     <y>150</y>
+     <width>201</width>
      <height>22</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="TL_error">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>180</y>
-     <width>181</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
    </property>
   </widget>
  </widget>
