@@ -34,10 +34,31 @@ public:
 
     QVector<CProfil> get_v_PRF_Profil() const;
 
+    /**
+     * @brief add Profile to vector v_PRF_Profile
+     * @param prfName
+     * @return 1 if profile added otherwise 0
+     */
     int add_Profil(CProfil profil);
+
+    /**
+     * @brief Deletes profile from vector v_PRF_Profile
+     * @param prfName
+     * @return 1 if profile deleted otherwise 0
+     */
     int supr_profil(CProfil prfName);
 
+    /**
+     * @brief have_profil
+     * @param prfName
+     * @return 1 if profile already exists otherwise 0
+     */
     bool have_profil(CProfil prfName);
+
+    /**
+     * @brief isAdministrator
+     * @return 1 if administrator otherwise 0
+     */
     bool isAdministrator();
 
 

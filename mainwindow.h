@@ -25,6 +25,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    /** The following functions trigger the opening of the various dialog windows **/
     void deconexion(void);
     void openDialogCreatUser(void);
     void openDialogRemoveUser(void);
@@ -45,7 +46,10 @@ private slots :
 
 private:
     Ui::MainWindow *ui;
+
     CUserController UserControlleur;
+
+    /** Pointer that stores the dialog window **/
     DialogCreatUser *dialogCreatUser;
     DialogRemoveUser *dialogRemoveUser;
     DialogAddProfil *dialogAddProfil;

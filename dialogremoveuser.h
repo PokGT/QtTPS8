@@ -19,6 +19,7 @@ public:
     explicit DialogRemoveUser(QWidget *parent = nullptr);
     ~DialogRemoveUser();
 
+    /** The following 3 functions update the window display **/
     void acutaliserCB_user(void);
     void acutaliserInfoUser(int index);
     void refreshWindow(void);
