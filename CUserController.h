@@ -51,14 +51,14 @@ public:
     /**
      * @brief chek_if_exist : checks if the user already exists
      * @param user
-     * @return 0 if the user exists 1 otherwise
+     * @return 1 if the user exists 0 otherwise
      */
     static bool chek_if_exist(CUser& user);
 
     /**
      * @brief addUser : adds an user to the saves file
      * @param user
-     * @return
+     * @return 0 if it could add the user 1 if the user exists
      */
     static bool addUser(CUser user);
 
