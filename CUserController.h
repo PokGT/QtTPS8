@@ -23,7 +23,7 @@ public:
      * @brief replace UserConnecter if somebody already connected then check the presence of the user in the file
      * @param username
      * @param password
-     * @return
+     * @return 0 if the user could connect 1 otherwise
      */
     bool connection(QString username, QString password);
 
@@ -51,7 +51,7 @@ public:
     /**
      * @brief chek_if_exist : checks if the user already exists
      * @param user
-     * @return
+     * @return 0 if the user exists 1 otherwise
      */
     static bool chek_if_exist(CUser& user);
 
