@@ -43,14 +43,18 @@ void MainWindow::openDialogRemoveUser(void)
 
 void MainWindow::openDialogAddProfil(void)
 {
+    dialogAddProfil->setUserControlleur(UserControlleur);
     dialogAddProfil->refreshWindow();
     dialogAddProfil->exec();
+    this->refreshesListProfile();
 }
 
 void MainWindow::openDialogRemoveProfil(void)
 {
+    dialogRemoveProfil->setUserControlleur(UserControlleur);
     dialogRemoveProfil->refreshWindow();
     dialogRemoveProfil->exec();
+    this->refreshesListProfile();
 }
 
 void MainWindow::deconexion(void)
@@ -88,12 +92,7 @@ void MainWindow::on_PB_conexion_clicked()
         ui->TL_userNameAcceuil->setText(user.get_s_username());
         ui->TL_roleAcceuil->setText(user.get_s_role());
 
-        ui->CB_profile->clear();
-        QVector<CProfil> ListProfil = user.get_v_PRF_Profil();
-        for (auto it = ListProfil.begin(); it != ListProfil.end(); it++)
-        {
-            ui->CB_profile->addItem(it->get_s_prfName());
-        }
+        refreshesListProfile();
 
         //home page display
         ui->stackedWidget->setCurrentWidget(ui->pageAcceuil);
@@ -123,4 +122,15 @@ void MainWindow::on_PB_cree_clicked()
     }
 
 }
+void MainWindow::refreshesListProfile()
+{
+    CUser user = UserControlleur.getUserUserConnecter();
+    QVector<CProfil> ListProfil = user.get_v_PRF_Profil();
 
+    ui->CB_profile->clear();
+    for (auto it = ListProfil.begin(); it != ListProfil.end(); it++)
+    {
+        ui->CB_profile->addItem(it->get_s_prfName());
+    }
+
+}

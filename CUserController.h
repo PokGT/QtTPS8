@@ -58,7 +58,7 @@ public:
     /**
      * @brief addUser : adds an user to the saves file
      * @param user
-     * @return 0 if it could add the user 1 if the user exists
+     * @return 1 if it could add the user 0 if the user exists
      */
     static bool addUser(CUser user);
 

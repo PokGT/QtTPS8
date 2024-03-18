@@ -24,6 +24,8 @@ public:
     void acutaliserInfoUser(int index);
     void refreshWindow(void);
 
+    void setUserControlleur(CUserController Controller);
+
 private slots:
     /**
      * @brief Event triggered when hey administrator selects a user from the combo box
@@ -36,7 +38,11 @@ private slots:
 private:
     Ui::DialogAddProfil *ui;
 
+    CUserController UserControlleur;
+
     QVector<CUser> v_USR_ListUsers;
+
+    void initV_USR_ListUsers();
 };
 
 #endif // DIALOGADDPROFIL_H

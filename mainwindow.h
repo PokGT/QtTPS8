@@ -32,6 +32,9 @@ public:
     void openDialogAddProfil(void);
     void openDialogRemoveProfil(void);
 
+    /* This function refreshes the profile list display */
+    void refreshesListProfile();
+
 private slots :
 
     /**

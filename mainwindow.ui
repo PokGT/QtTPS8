@@ -284,18 +284,29 @@
     </property>
     <addaction name="actionCreate_User"/>
     <addaction name="actionRemove_User"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit_profile">
+    <property name="title">
+     <string>Edit profile</string>
+    </property>
     <addaction name="actionAdd_profile"/>
     <addaction name="actionRemove_profile"/>
-    <addaction name="actionShow_all"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menuDeconection"/>
+   <addaction name="menuEdit_profile"/>
    <addaction name="menuEditUser"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreate_User">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Create</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionRemove_User">
@@ -303,12 +314,12 @@
     <string>Remove</string>
    </property>
   </action>
-  <action name="actionAdd_profile">
+  <action name="action">
    <property name="text">
     <string>Add profile</string>
    </property>
   </action>
-  <action name="actionRemove_profile">
+  <action name="action_2">
    <property name="text">
     <string>Remove profile</string>
    </property>
@@ -321,6 +332,16 @@
   <action name="actionQuit">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionAdd_profile">
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </action>
+  <action name="actionRemove_profile">
+   <property name="text">
+    <string>Remove</string>
    </property>
   </action>
  </widget>

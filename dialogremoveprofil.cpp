@@ -16,10 +16,18 @@ DialogRemoveProfil::~DialogRemoveProfil()
 
 void DialogRemoveProfil::acutaliserCB_user(void)
 {
-    ui->CB_user->clear();
-    for (auto it = v_USR_ListUsers.begin(); it != v_USR_ListUsers.end(); it++)
+    if(UserControlleur.getUserUserConnecter().isAdministrator())
     {
-        ui->CB_user->addItem(it->get_s_username());
+        ui->CB_user->clear();
+        for (auto it = v_USR_ListUsers.begin(); it != v_USR_ListUsers.end(); it++)
+        {
+            ui->CB_user->addItem(it->get_s_username());
+        }
+    }
+    else
+    {
+        ui->CB_user->clear();
+        ui->CB_user->addItem(UserControlleur.getUserUserConnecter().get_s_username());
     }
 }
 
@@ -67,5 +75,10 @@ void DialogRemoveProfil::on_PB_remove_clicked()
         ui->TL_error->setVisible(1);
         ui->TL_error->setText("error during supretion");
     }
+}
+
+void DialogRemoveProfil::setUserControlleur(CUserController Controller)
+{
+    UserControlleur = Controller;
 }
 
