@@ -9,19 +9,35 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CBDD.cpp \
     CJsonTool.cpp \
+    CProfil.cpp \
     CUser.cpp \
     CUserController.cpp \
+    dialogaddprofil.cpp \
+    dialogcreatuser.cpp \
+    dialogremoveprofil.cpp \
+    dialogremoveuser.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    CBBD.h \
     CJsonTool.h \
+    CProfil.h \
     CUser.h \
     CUserController.h \
+    dialogaddprofil.h \
+    dialogcreatuser.h \
+    dialogremoveprofil.h \
+    dialogremoveuser.h \
     mainwindow.h
 
 FORMS += \
+    dialogaddprofil.ui \
+    dialogcreatuser.ui \
+    dialogremoveprofil.ui \
+    dialogremoveuser.ui \
     mainwindow.ui
 
 # Default rules for deployment.

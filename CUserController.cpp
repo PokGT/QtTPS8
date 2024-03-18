@@ -24,7 +24,7 @@ bool CUserController::connection(QString username, QString password)
     {
         delete UserConnecter;
     }
-    vector<CUser> Listuser = CUserController::get_list_user("user.json");
+    QVector<CUser> Listuser = CUserController::get_list_user();
     for (auto it = Listuser.begin(); it != Listuser.end(); it++) {
         if(it->get_s_username() == username && it->get_s_password() == password)
         {
@@ -44,26 +44,44 @@ void CUserController::deconnection()
     UserConnecter = nullptr;
 }
 
-vector<CUser> CUserController::get_list_user(QString JsonFilePath)
+CUser CUserController::getUserUserConnecter()
 {
-    vector<CUser> Listuser;
+    return CUser(*UserConnecter);
+}
 
-    QJsonDocument Doc = CJsonTool::getData(JsonFilePath);
+
+
+QVector<CUser> CUserController::get_list_user()
+{
+    QVector<CUser> Listuser;
+
+    QJsonDocument Doc = CJsonTool::getData("user.json");
 
     if(Doc.isObject()){
         QJsonObject Obj = Doc.object();
-        QJsonArray JArray = Obj.value("user").toArray();
-        for(auto points : JArray)
+
+        QJsonArray JArrayUser = Obj.value("user").toArray();
+        for(auto user : JArrayUser)
         {
-            QJsonObject objectpoint = points.toObject();
-            Listuser.push_back(CUser(objectpoint.value("username").toString(),objectpoint.value("password").toString(),objectpoint.value("role").toString()));
+            QJsonObject objectpointUser = user.toObject();
+
+            QVector<CProfil> Profil;
+            QJsonArray JArrayProfil = objectpointUser.value("profil").toArray();
+            for(auto profil : JArrayProfil)
+            {
+                QJsonObject objectpointProfil = profil.toObject();
+                Profil.push_back(CProfil(objectpointProfil.value("prfName").toString()));
+            }
+
+            Listuser.push_back(CUser(objectpointUser.value("username").toString(),objectpointUser.value("password").toString(),objectpointUser.value("role").toString(),Profil));
+            Profil.clear();
         }
     }
 
     return Listuser;
 }
 
-void CUserController::save_list_user(vector<CUser> users, QString path)
+void CUserController::save_list_user(QVector<CUser> users)
 {
     QJsonArray array;
     for (auto it = users.begin(); it != users.end(); it++) {
@@ -71,18 +89,29 @@ void CUserController::save_list_user(vector<CUser> users, QString path)
         Temp.insert("username",it->get_s_username());
         Temp.insert("password",it->get_s_password());
         Temp.insert("role",it->get_s_role());
+
+        QVector<CProfil> Profil = it->get_v_PRF_Profil();
+        QJsonArray arrayProfil;
+        for (auto itProfil = Profil.begin(); itProfil != Profil.end(); itProfil++){
+            QJsonObject Jprofil;
+            Jprofil.insert("prfName",itProfil->get_s_prfName());
+            arrayProfil.append(Jprofil);
+        }
+
+        Temp.insert("profil",arrayProfil);
+
         array.append(Temp);
     }
     QJsonObject object;
     object.insert("user", array);
     QJsonDocument document;
     document.setObject(object);
-    CJsonTool::setData(document,path);
+    CJsonTool::setData(document,"user.json");
 }
 
 bool CUserController::chek_if_exist(CUser& user)
 {
-    vector<CUser> Listuser = CUserController::get_list_user("user.json");
+    QVector<CUser> Listuser = CUserController::get_list_user();
     for (auto it = Listuser.begin(); it != Listuser.end(); it++) {
         if(*it == user){
             return true;
@@ -93,10 +122,10 @@ bool CUserController::chek_if_exist(CUser& user)
 
 bool CUserController::addUser(CUser user)
 {
-    vector<CUser> ListUser = CUserController::get_list_user("user.json");
+    QVector<CUser> ListUser = CUserController::get_list_user();
     if(!chek_if_exist(user)){
         ListUser.push_back(user);
-        save_list_user(ListUser, "user.json");
+        save_list_user(ListUser);
         return true;
     }
     return false;
