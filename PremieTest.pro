@@ -23,6 +23,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    CBDD.h \
     CBDD.h\
     CJsonTool.h \
     CProfil.h \
