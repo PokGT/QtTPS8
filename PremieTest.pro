@@ -1,4 +1,4 @@
-    aQT       += core gui
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,7 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CBDD.cpp\
+    CBDD.cpp \
     CJsonTool.cpp \
     CProfil.cpp \
     CUser.cpp \
@@ -24,7 +24,6 @@ SOURCES += \
 
 HEADERS += \
     CBDD.h \
-    CBDD.h\
     CJsonTool.h \
     CProfil.h \
     CUser.h \

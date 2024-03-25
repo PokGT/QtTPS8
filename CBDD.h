@@ -11,9 +11,8 @@ class CBDD
 {
 
 protected:
-    CBDD();
     static CBDD* CBDD_singleton;
-
+    CBDD();
 public:
 
 /* Méthode liée au fonctionnement du singleton */
@@ -23,7 +22,7 @@ public:
 static CBDD* GetInstance();
 
 /* Méthode liée à la logique métier  */
-
+/*
 QList<QString> get_list_BDD();
 
 QList<QString> get_list_Table_name();
@@ -35,7 +34,7 @@ bool chek_if_BDDexist(QString& BDDname);
 bool connect_BDD(QString& BDDname);
 
 int getDroit(QString& BDDname,QString& UserNam);
-
+*/
 };
 
 #endif // CBDD_H

@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class DialogQuery;
+class dialogquery;
 }
 
-class DialogQuery : public QDialog
+class dialogquery : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DialogQuery(QWidget *parent = nullptr);
-    ~DialogQuery();
+    explicit dialogquery(QWidget *parent = nullptr);
+    ~dialogquery();
 
 private:
-    Ui::DialogQuery *ui;
+    Ui::dialogquery *ui;
 };
 
 #endif // DIALOGQUERY_H
