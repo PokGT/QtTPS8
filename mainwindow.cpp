@@ -29,7 +29,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+void MainWindow::openDialogQuery(void){
+    dialogquery->exec();
+}
 void MainWindow::openDialogCreatUser(void)
 {
     dialogCreatUser->exec();
@@ -134,3 +136,5 @@ void MainWindow::refreshesListProfile()
     }
 
 }
+
+
